@@ -2,7 +2,20 @@
 <html lang="en">
 
 <head>
-   <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Base Datos Indexada</title>
+
+  <!-- Boot Strap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" defer=""></script>
+  <!-- Local Resources -->
+  <link rel="icon" type="image/x-icon" href="/favicon.jpg"/>
+  <script src="./main.js" defer=""></script>
+  <link rel="manifest" href="./manifest.json">
+  <!-- Local Styles -->
   <style>
     html {
       font-size: small;
@@ -14,7 +27,7 @@
 
     }
 
-    
+
 
     iframe {
       width: 100%;
@@ -27,22 +40,31 @@
       padding-bottom: 20px;
       padding-bottom: 20px;
     }
-    table{
-       width: -webkit-fill-available; 
+
+    table {
+      width: -webkit-fill-available;
     }
-    table input{
-      width: -webkit-fill-available; 
+
+    table input {
+      width: -webkit-fill-available;
     }
-    h1,h2,h3{
+
+    h1,
+    h2,
+    h3 {
       text-align: center;
     }
-    #pub-msg,#search-list-button{
+
+    #pub-msg,
+    #search-list-button {
       float: left;
     }
-    #pub-msg{
+
+    #pub-msg {
       margin-left: 15px;
     }
-    h2{
+
+    h2 {
       font-size: medium !important;
       border: solid 0.2px black;
       border-radius: 20px;
@@ -53,33 +75,41 @@
       /* margin: 0px; */
       margin-left: 42%;
     }
-    h3{
+
+    h3 {
       font-size: small !important;
     }
-    #panel_container{
+
+    #panel_container {
       max-height: 93vh;
-    cursor: auto;
+      cursor: auto;
     }
-    td input[type=file]{
+
+    td input[type=file] {
       margin-top: 5px;
       margin-bottom: 5px;
     }
-    label{/* border: solid 0.2px black; */border-radius: 10px;width: 100%;display: flex !important;padding: 2px;padding-left: 10px;text-align: right;flex-direction: row-reverse;}
- #pub-list li a{
-  border: solid;
- }
- #pub-list li a::before{
-  content: "▷";
- }
+
+    label {
+      /* border: solid 0.2px black; */
+      border-radius: 10px;
+      width: 100%;
+      display: flex !important;
+      padding: 2px;
+      padding-left: 10px;
+      text-align: right;
+      flex-direction: row-reverse;
+    }
+
+    #pub-list li a {
+      border: solid;
+    }
+
+    #pub-list li a::before {
+      content: "▷";
+    }
   </style>
-  <title>Bootstrap Example</title>
- 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" defer=""></script>
-  <script src="./main.js" defer=""></script>
-  <link rel="manifest" href="./manifest.json">
+
 </head>
 
 <body>
@@ -94,135 +124,140 @@
         <button onclick='$("#panel_footer").toggle();' class="btn border ">Footer</button>
         <a href="https://www.google.com" class="btn border">Google</a>
 
-     <hr>
+        <hr>
       </div>
     </div>
-    <div >
-     <h2 id="h2_maintenance" onclick='$("#panel_add_delete").toggle();'>Maintenance </h2>
-    <div style="display: none;" id="panel_add_delete" class="row  mt-1 ">
-     
-      <div class="col col-sm-6 p-1  ">
-        <div class=" p-2">
-          <h3>Add</h3><hr>
+    <div>
+      <h2 id="h2_maintenance" onclick='$("#panel_add_delete").toggle();'>Maintenance </h2>
+      <div style="display: none;" id="panel_add_delete" class="row  mt-1 ">
 
-          <form id="register-form">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label for="pub-title" class="required">Title:</label>
-                  </td>
-                  <td>
-                    <input type="text" id="pub-title" name="pub-title" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label for="pub-biblioid" class="required">
-                      Bibliographic ID:<br />
-                      <span class="note">(ISBN, ISSN, etc.)</span>
-                    </label>
-                  </td>
-                  <td>
-                    <input type="text" id="pub-biblioid" name="pub-biblioid" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label for="pub-year">Year:
-                    </label>
-                  </td>
-                  <td>
-                    <input type="number" id="pub-year" name="pub-year" />
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>
-                    <label for="pub-file">File image:
-                    </label>
-                  </td>
-                  <td>
-                    <input  class="form-control form-control-md"  type="file" id="pub-file" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label for="pub-file-url">
-                      Online-file image URL:<br />
-                      <span class="note">(same origin URL)</span>
-                    </label>
-                  </td>
-                  <td>
-                    <input type="text" id="pub-file-url" name="pub-file-url" />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="col col-sm-6 p-1  ">
+          <div class=" p-2">
+            <h3>Add</h3>
             <hr>
-            <div class="button-pane">
-              <input class="btn text-bg-success" type="button" id="add-button" value="Add Publication" />
-              <input class="btn text-bg-warning" type="reset" id="register-form-reset" />
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="col col-sm-6 p-1 ">
-       
-        <div class=" p-2">
-           <h3>Delete</h3><hr>
-          <form id="delete-form">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <label for="pub-biblioid-to-delete">
-                      Bibliographic ID:<br />
-                      <span class="note">(ISBN, ISSN, etc.)</span>
-                    </label>
-                  </td>
-                  <td>
-                    <input type="text" id="pub-biblioid-to-delete" name="pub-biblioid-to-delete" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label for="key-to-delete">
-                      Key:<br />
-                      <span class="note">(for example 1, 2, 3, etc.)</span>
-                    </label>
-                  </td>
-                  <td>
-                    <input type="text" id="key-to-delete" name="key-to-delete" />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <hr>
-            <div class="button-pane">
-              <input class="btn border text-bg-danger" type="button" id="delete-button" value="Delete Publication" />
-              <input class="btn border text-bg-secondary"  type="button" id="clear-store-button" value="Clear the whole store" class="destructive" />
-            </div>
-          </form>
-        </div>
-      </div>
 
+            <form id="register-form">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="pub-title" class="required">Title:</label>
+                    </td>
+                    <td>
+                      <input type="text" id="pub-title" name="pub-title" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="pub-biblioid" class="required">
+                        Bibliographic ID:<br />
+                        <span class="note">(ISBN, ISSN, etc.)</span>
+                      </label>
+                    </td>
+                    <td>
+                      <input type="text" id="pub-biblioid" name="pub-biblioid" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="pub-year">Year:
+                      </label>
+                    </td>
+                    <td>
+                      <input type="number" id="pub-year" name="pub-year" />
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="pub-file">File image:
+                      </label>
+                    </td>
+                    <td>
+                      <input class="form-control form-control-md" type="file" id="pub-file" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="pub-file-url">
+                        Online-file image URL:<br />
+                        <span class="note">(same origin URL)</span>
+                      </label>
+                    </td>
+                    <td>
+                      <input type="text" id="pub-file-url" name="pub-file-url" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr>
+              <div class="button-pane">
+                <input class="btn text-bg-success" type="button" id="add-button" value="Add Publication" />
+                <input class="btn text-bg-warning" type="reset" id="register-form-reset" />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col col-sm-6 p-1 ">
+
+          <div class=" p-2">
+            <h3>Delete</h3>
+            <hr>
+            <form id="delete-form">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="pub-biblioid-to-delete">
+                        Bibliographic ID:<br />
+                        <span class="note">(ISBN, ISSN, etc.)</span>
+                      </label>
+                    </td>
+                    <td>
+                      <input type="text" id="pub-biblioid-to-delete" name="pub-biblioid-to-delete" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="key-to-delete">
+                        Key:<br />
+                        <span class="note">(for example 1, 2, 3, etc.)</span>
+                      </label>
+                    </td>
+                    <td>
+                      <input type="text" id="key-to-delete" name="key-to-delete" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr>
+              <div class="button-pane">
+                <input class="btn border text-bg-danger" type="button" id="delete-button" value="Delete Publication" />
+                <input class="btn border text-bg-secondary" type="button" id="clear-store-button"
+                  value="Clear the whole store" class="destructive" />
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-    <hr><h2 onclick='$("#panel_viewer").toggle();' >Viewer</h2>
+    <hr>
+    <h2 onclick='$("#panel_viewer").toggle();'>Viewer</h2>
     <div style="display: none;" id="panel_viewer" class="row mt-1 ">
-      
+
       <form id="search-form">
         <div class="button-pane">
           <input class="btn border" type="button" id="search-list-button" value="List database content" />
-         <div  id="pub-msg"></div>
-         
+          <div id="pub-msg"></div>
+
         </div>
-       
+
       </form>
       <div class="col col-sm-4 p-2  ">
-        <h3>Document List</h3><hr>
+        <h3>Document List</h3>
+        <hr>
         <div class="">
           <div>
 
@@ -232,14 +267,15 @@
         </div>
       </div>
       <div class="col col-sm-8 p-2 ">
-        <h3>pdf Viewer</h3><hr>
+        <h3>pdf Viewer</h3>
+        <hr>
         <div id="pub-viewer" class="">
 
         </div>
       </div>
     </div>
     <hr>
-    <div  style="display: none;" id="panel_footer" class="row mt-1 mb-3 border border-2">
+    <div style="display: none;" id="panel_footer" class="row mt-1 mb-3 border border-2">
       <h3>footer</h3>
       <div class="col col-12">
 
@@ -264,7 +300,7 @@
 
 
 
-      
+
     }
   </script>
 </body>
