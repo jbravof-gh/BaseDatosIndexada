@@ -61,7 +61,7 @@ console.log("fetched",fetchResponse)
         // Fetching didn't work let's go to the error page.
         if (event.request.mode === 'navigate') {
           await rememberRequestedTip(event.request.url);
-          const errorResponse = await cache.match('/pages/offline.html');
+          const errorResponse = await cache.match('./pages/offline.html');
           return errorResponse;
         }
       }
