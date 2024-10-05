@@ -248,8 +248,8 @@
   </div>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('../sw.js', {
-        scope: '../'
+      navigator.serviceWorker.register('./sw.js', {
+        scope: './'
       }).then(reg => {
         if (reg.installing) {
           console.log('Service worker installing');
@@ -262,19 +262,7 @@
         console.log('Registration failed with ' + e);
       });
 
-               navigator.serviceWorker.register('./test_sw_local/local-sw.js', {
-    scope: './test_sw_local/'
-  }).then(reg => {
-    if (reg.installing) {
-      console.log('Service worker <code>local-sw.js</code> installing');
-    } else if (reg.waiting) {
-      console.log('Service worker installed');
-    } else if (reg.active) {
-      console.log('Service worker active');
-    }
-  }).catch(e => {
-    console.log('Registration failed with ' + e);
-  });
+
 
       
     }

@@ -4,13 +4,13 @@ const CACHE_NAME = 'VS_pwa';
 
 const INITIAL_CACHED_RESOURCES = [
   //'./',
-  '/favicon.ico',
-  '/pages/index.html',
-    '/pages/test_sw_local/local_sw.html',
+  './favicon.ico',
+  //'/pages/index.html',
+  //  '/pages/test_sw_local/local_sw.html',
 //  '../../favicon.ico',
   //'./app.css',
   //'../scripts/sw.js',
-  '/pages/offline.html'
+  './pages/offline.html'
 ];
 
 self.addEventListener('install', event => {
