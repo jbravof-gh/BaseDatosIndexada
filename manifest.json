@@ -1,0 +1,58 @@
+{
+    "name": "indexedDB",
+    "lang": "en-us",
+    "short_name": "SamplePWA_indexedDB",
+    "description": "A sample PWA for testing purposes",
+    "id": "/",
+    "start_url": "./pages/grid.html",
+    "scope": "/",
+    "display_override": [
+        "window-controls-overlay"
+    ],
+    "display": "standalone",
+    "theme_color": "white",
+    "background_color": "#2f3d58",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/icons/icon512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshot1.png",
+            "type": "image/png",
+            "sizes": "465x465"
+        },
+        {
+            "src": "/images/icon16.png",
+            "type": "image/png",
+            "sizes": "465x465"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Start",
+            "description": "View the list of podcasts you saved for later",
+            "url": "/pages/grid.html",
+            "icons": [
+                {
+                    "src": "/icons/icon512.png",
+                    "sizes": "512x512"
+                }
+            ]
+        },
+        {
+            "name": "offline",
+            "description": "View the list of podcasts you listen to",
+            "url": "/pages/offline.html"
+        },
+                {
+            "name": "test_sw_local",
+            "description": "View the list of podcasts you listen to",
+            "url": "/pages/test_sw_local/local_sw.html"
+        }
+    ]
+}

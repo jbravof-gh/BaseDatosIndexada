@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample HTML Page</title>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="manifest" href="../app.webmanifest" crossorigin="use-credentials"/>
+
+</head>
+<body>
+    <h1>Welcome to My Sample Page</h1>
+    <p>This is a paragraph of text on my sample HTML page.</p>
+    <a href="https://www.example.com">This is a link</a>
+    <img src="../images/icon16.png" alt="Sample Image">
+<hr/>
+        <a href="start.html">This is a link to Start</a>
+        <a href="test_sw_local/local_sw.html">local_sw.</a>
+        <script>
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register('../sw.js', {
+                scope: '../'
+              }).then(reg => {
+                if (reg.installing) {
+                  console.log('Service worker installing');
+                } else if (reg.waiting) {
+                  console.log('Service worker installed');
+                } else if (reg.active) {
+                  console.log('Service worker active');
+                }
+              }).catch(e => {
+                console.log('Registration failed with ' + e);
+              });
+
+                       navigator.serviceWorker.register('./test_sw_local/local-sw.js', {
+            scope: './test_sw_local/'
+          }).then(reg => {
+            if (reg.installing) {
+              console.log('Service worker <code>local-sw.js</code> installing');
+            } else if (reg.waiting) {
+              console.log('Service worker installed');
+            } else if (reg.active) {
+              console.log('Service worker active');
+            }
+          }).catch(e => {
+            console.log('Registration failed with ' + e);
+          });
+
+              
+            }
+          </script>
+</body>
+</html>

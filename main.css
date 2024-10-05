@@ -1,0 +1,96 @@
+body {
+  font-family: sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+form {
+  background-color: #cccccc;
+  border-radius: 0.3em;
+  /* display: inline-block; */
+  /* margin-bottom: 0.5em; */
+  /* padding: 1em; */
+  font-size: x-small;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input {
+  padding: 0.3em;
+  border-color: #cccccc;
+  border-radius: 0.3em;
+}
+
+.required:after {
+  content: "*";
+  color: red;
+}
+
+.button-pane {
+  /* margin-top: 1em; */
+}
+
+#pub-viewer {
+  float: right;
+  /* display: contents; */
+  /* width: 48%; */
+  /* height: 100%; */
+  border: solid #d092ff 0.1em;
+}
+
+#pub-viewer iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#pub-list {
+  /* width: 46%; */
+  background-color: #eeeeee;
+  border-radius: 0.3em;
+  max-height: 109px;
+  overflow: auto;
+}
+
+#pub-list li {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 0.5em;
+}
+
+#msg {
+  margin-bottom: 1em;
+}
+
+.action-success {
+  padding: 0.5em;
+  color: #00d21e;
+  background-color: #eeeeee;
+  border-radius: 0.2em;
+}
+
+.action-failure {
+  padding: 0.5em;
+  color: #ff1408;
+  background-color: #eeeeee;
+  border-radius: 0.2em;
+}
+
+.note {
+  font-size: smaller;
+}
+
+.destructive {
+  background-color: orange;
+}
+
+.destructive:hover {
+  background-color: #ff8000;
+}
+
+.destructive:active {
+  background-color: red;
+}
