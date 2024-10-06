@@ -1,6 +1,6 @@
 // UPDATED: 2021-11-19
 
-const CACHE_NAME = 'VS_pwa';
+const CACHE_NAME = 'BDI_Cache';
 
 const INITIAL_CACHED_RESOURCES = [
   //'./',
@@ -8,7 +8,7 @@ const INITIAL_CACHED_RESOURCES = [
   './index.html',
   './manifest.json',
   './sw.js',
-    './pages/offline.html'
+  './pages/offline.html'
 ];
 
 self.addEventListener('install', event => {
@@ -28,23 +28,23 @@ self.addEventListener('fetch', event => {
     if (cachedResponse !== undefined) {
       const simpleResponse = new Response("Body of the HTTP response");
 
-const options = {
-   status: 200,
-   headers: {
-    'Content-type': 'text/html'
-   }
-};
-const htmlResponse = new Response("<b>HTML</b> content", options)
-console.log("htmlResponse",htmlResponse)
-console.log("htmlResponse_url",htmlResponse.body)
-console.log("htmlResponse_text",htmlResponse.text)
-//window.document.body.innerHTML+="<div>hola</div>"
+      const options = {
+        status: 200,
+        headers: {
+          'Content-type': 'text/html'
+        }
+      };
+      const htmlResponse = new Response("<b>HTML</b> content", options)
+      console.log("htmlResponse", htmlResponse)
+      console.log("htmlResponse_url", htmlResponse.body)
+      console.log("htmlResponse_text", htmlResponse.text)
+      //window.document.body.innerHTML+="<div>hola</div>"
       // Cache hit, let's send the cached resource.
-      console.log("cached",cachedResponse)
-   //************ */    return htmlResponse;
-   return cachedResponse;
+      console.log("cached", cachedResponse)
+      //************ */    return htmlResponse;
+      return cachedResponse;
 
-     
+
     } else {
       // Nothing in cache, let's go to the network.
 
@@ -52,13 +52,13 @@ console.log("htmlResponse_text",htmlResponse.text)
         const fetchResponse = await fetch(event.request);
         // Save the new resource in the cache (responses are streams, so we need to clone in order to use it here).
         cache.put(event.request, fetchResponse.clone());
-console.log("fetched",fetchResponse)
+        console.log("fetched", fetchResponse)
         // And return it.
         return fetchResponse;
       } catch (e) {
         // Fetching didn't work let's go to the error page.
         if (event.request.mode === 'navigate') {
-       //   await rememberRequestedTip(event.request.url);
+          //   await rememberRequestedTip(event.request.url);
           const errorResponse = await cache.match('./pages/offline.html');
           return errorResponse;
         }

@@ -3,9 +3,9 @@
     "lang": "en-us",
     "short_name": "SamplePWA_indexedDB",
     "description": "A sample PWA for testing purposes",
-    "id": "/",
+    "id": "./",
     "start_url": "./index.html",
-    "scope": "/",
+    "scope": "./",
     "display_override": [
         "window-controls-overlay"
     ],
