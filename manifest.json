@@ -1,11 +1,11 @@
 {
-    "name": "indexedDB",
+    "name": "BaseDatosIndexada",
     "lang": "en-us",
-    "short_name": "SamplePWA_indexedDB",
+    "short_name": "SamplePWA_BaseDatosIndexada",
     "description": "A sample PWA for testing purposes",
-    "id": "./",
-    "start_url": "./index.html",
-    "scope": "./",
+    "id": "/BaseDatosIndexada",
+    "start_url": "/BaseDatosIndexada/index.html",
+    "scope": "/BaseDatosIndexada",
     "display_override": [
         "window-controls-overlay"
     ],
